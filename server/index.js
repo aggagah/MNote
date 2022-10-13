@@ -10,10 +10,16 @@ app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// * routes
+// * default routes
 app.get("/", (req, res) => {
     res.send("api base endpoint");
 });
+
+// * user routes
+app.use("/user", require("./routes/user.route"));
+
+// * auth routes
+app.use("/auth", require("./routes/auth.route"));
 
 // * connect database then run server
 const port = process.env.PORT;
