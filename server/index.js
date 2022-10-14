@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 require("dotenv").config();
 
 // * app configuration
@@ -9,6 +11,28 @@ app.use(cors());
 app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// * session configuration
+const MAX_AGE = 1000 * 60 * 30; // 30 minutes
+const mongoDBStore = new MongoDBStore({
+    uri: process.env.MONGO_URI,
+    collection: "mySessions",
+});
+
+app.use(
+    session({
+        secret: process.env.SECRET,
+        name: "session-id",
+        store: mongoDBStore,
+        cookie: {
+            maxAge: MAX_AGE,
+            sameSite: false,
+            secure: false,
+        },
+        resave: true,
+        saveUninitialized: false,
+    })
+);
 
 // * default routes
 app.get("/", (req, res) => {
