@@ -71,6 +71,9 @@ function Login() {
                         />
                     </div>
                     <button type="submit">LOGIN</button>
+                    <p>
+                        dont have account? <a href="/register">create one</a>
+                    </p>
                 </form>
             </div>
         </div>
