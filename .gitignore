@@ -2,6 +2,7 @@
 
 # dependencies
 /client/node_modules
+/client/src/api
 /server/node_modules
 /node_modules
 /.pnp
