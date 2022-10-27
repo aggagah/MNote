@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .register-page {
@@ -11,60 +10,84 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    background-color: #314b4c;
 }
 
-.register-page .left,
-.register-page .right {
+.register-page .center {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 100vh;
 }
-.register-page .left {
-    background-color: #4fa8eb;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: #f3f3f3;
-}
 
-.register-page .right {
-    background-color: #e2e3e3;
-}
-
-.register-page .right form.register {
+.register-page .center form.register {
     height: 70%;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.register-page .right form.register .email,
-.register-page .right form.register .phone,
-.register-page .right form.register .name,
-.register-page .right form.register .password {
+.register-page .center form.register h1 {
+    font-family: "Poppins", sans-serif;
+    color: #e7c2ba;
+    font-size: 2.5em;
+}
+
+.register-page .center form.register .name-phone {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.register-page .center form.register .name-phone .name,
+.register-page .center form.register .name-phone .phone {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.register-page .center form.register .name-phone .name input,
+.register-page .center form.register .name-phone .phone input {
+    width: 90%;
+    line-height: 2.7;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    font-size: 1.2em;
+    align-self: center;
+    box-shadow: 1px 2px 5px #7c7c7c;
+    background-color: #e7c2ba;
+    color: #655551;
+}
+
+.register-page .center form.register .email,
+.register-page .center form.register .password {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
 
-.register-page .right form.register .email p {
+.register-page .center form.register .email p {
     font-size: 0.8em;
     color: red;
 }
 
-.register-page .right form.register label {
-    font-size: 1.7em;
-    color: #555555;
+.register-page .center form.register label {
+    font-size: 1.5em;
+    color: #fff;
 }
 
-.register-page .right form.register input {
-    line-height: 3;
+.register-page .center form.register .email input,
+.register-page .center form.register .password input {
+    line-height: 2.7;
     width: 95%;
     border-style: none;
     border-radius: 10px;
@@ -73,26 +96,32 @@
     font-size: 1.2em;
     align-self: center;
     box-shadow: 1px 2px 5px #7c7c7c;
-    background-color: #f7f8f9;
+    background-color: #e7c2ba;
+    color: #655551;
 }
 
-.register-page .right form.register button {
+.register-page .center form.register button {
     line-height: 3.5;
     width: 60%;
     border-style: none;
     border-radius: 20px;
     transition: 0.3s;
-    background-color: #4fa8eb;
-    color: #f3f3f3;
+    background-color: #e7c2ba;
+    color: #655551;
     font-size: 1.15em;
     box-shadow: 1px 2px 5px #7c7c7c;
 }
 
-.register-page .right form.register button:hover {
+.register-page .center form.register button:hover {
     transition: 0.3s;
     transform: scale(1.05);
 }
 
-.register-page .right form.register a {
-    color: #4fa8eb;
+.register-page .center form.register p {
+    color: #fff;
+}
+
+.register-page .center form.register a {
+    color: #e7c2ba;
+    text-decoration: none;
 }
