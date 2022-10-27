@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .login-page {
@@ -22,26 +24,38 @@
     height: 100vh;
 }
 .login-page .left {
-    background-color: #4fa8eb;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     color: #f3f3f3;
+    background-color: #617475;
+}
+
+.login-page .left h1 {
+    font-family: "MuseoModerno", cursive;
+    font-size: 2.8em;
+    color: #e0ab4b;
 }
 
 .login-page .right {
-    background-color: #e2e3e3;
+    background-color: #314b4c;
 }
 
 .login-page .right form.login {
-    height: 50%;
+    height: 60%;
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.login-page .right form.login h1 {
+    font-family: "Poppins", sans-serif;
+    color: #e7c2ba;
+    font-size: 2.5em;
 }
 
 .login-page .right form.login .email,
@@ -57,11 +71,13 @@
 }
 
 .login-page .right form.login label {
-    font-size: 1.7em;
-    color: #555555;
+    font-size: 1.5em;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
 }
 
 .login-page .right form.login input {
+    font-family: "Poppins", sans-serif;
     line-height: 3;
     width: 95%;
     border-style: none;
@@ -71,17 +87,19 @@
     font-size: 1.2em;
     align-self: center;
     box-shadow: 1px 2px 5px #7c7c7c;
-    background-color: #f7f8f9;
+    background-color: #e7c2ba;
+    color: #655551;
 }
 
 .login-page .right form.login button {
+    font-family: "Poppins", sans-serif;
     line-height: 3.5;
     width: 60%;
     border-style: none;
     border-radius: 20px;
     transition: 0.3s;
-    background-color: #4fa8eb;
-    color: #f3f3f3;
+    background-color: #e7c2ba;
+    color: #655551;
     font-size: 1.15em;
     box-shadow: 1px 2px 5px #7c7c7c;
 }
@@ -91,6 +109,12 @@
     transform: scale(1.05);
 }
 
+.login-page .right form.login p {
+    color: #fff;
+}
+
 .login-page .right form.login a {
-    color: #4fa8eb;
+    font-family: "Poppins", sans-serif;
+    color: #e7c2ba;
+    text-decoration: none;
 }
