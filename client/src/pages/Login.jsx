@@ -44,10 +44,10 @@ function Login() {
         <div className="login-page">
             <div className="left">
                 <h1>MNote</h1>
-                <p>Your order note assistant</p>
             </div>
             <div className="right">
                 <form className="login" onSubmit={handleSubmit}>
+                    <h1>Sign In</h1>
                     <div className="email">
                         <p>{status}</p>
                         <label htmlFor="email">Email</label>
@@ -72,7 +72,7 @@ function Login() {
                     </div>
                     <button type="submit">LOGIN</button>
                     <p>
-                        dont have account? <a href="/register">create one</a>
+                        Don't have an account? <a href="/register">Sign up</a>
                     </p>
                 </form>
             </div>
