@@ -57,12 +57,34 @@ function Register() {
 
     return (
         <div className="register-page">
-            <div className="left">
-                <h1>MNote</h1>
-                <p>Your order note assistant</p>
-            </div>
-            <div className="right">
+            <div className="center">
                 <form className="register" onSubmit={handleSubmit}>
+                    <h1>Sign Up</h1>
+                    <div className="name-phone">
+                        <div className="name">
+                            <label htmlFor="fullname">Name</label>
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                name="fullname"
+                                value={state.fullname}
+                                onChange={change}
+                                autoComplete="off"
+                            />
+                        </div>
+
+                        <div className="phone">
+                            <label htmlFor="phone">Phone Number</label>
+                            <input
+                                type="text"
+                                placeholder="Enter your phone"
+                                name="phone"
+                                value={state.phone}
+                                onChange={change}
+                                autoComplete="off"
+                            />
+                        </div>
+                    </div>
                     <div className="email">
                         <p>{status}</p>
                         <label htmlFor="email">Email</label>
@@ -71,28 +93,6 @@ function Register() {
                             placeholder="Enter your email"
                             name="email"
                             value={state.email}
-                            onChange={change}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className="phone">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input
-                            type="text"
-                            placeholder="Enter your phone"
-                            name="phone"
-                            value={state.phone}
-                            onChange={change}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className="name">
-                        <label htmlFor="fullname">Name</label>
-                        <input
-                            type="text"
-                            placeholder="Enter your name"
-                            name="fullname"
-                            value={state.fullname}
                             onChange={change}
                             autoComplete="off"
                         />
@@ -109,7 +109,7 @@ function Register() {
                     </div>
                     <button type="submit">REGISTER</button>
                     <p>
-                        already have account? <a href="/">login</a>
+                        Already have an account? <a href="/">Sign in</a>
                     </p>
                 </form>
             </div>
