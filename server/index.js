@@ -47,6 +47,9 @@ app.use("/user", require("./routes/user.route"));
 // * auth routes
 app.use("/auth", require("./routes/auth.route"));
 
+// * order routes
+app.use("/order", require("./routes/order.route"));
+
 // * connect database then run server
 const port = process.env.PORT;
 const uri = process.env.MONGO_URI;
