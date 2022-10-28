@@ -13,6 +13,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    position: fixed;
 }
 
 .login-page .left,
