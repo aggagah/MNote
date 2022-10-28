@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.search-page {
+    width: calc(100vw - 300px);
+    height: calc(100vh - (100vh - 100px));
+    margin-left: calc(100vw - (100vw - 300px));
+    padding-top: calc(100vh - (100vh - 100px));
+}
