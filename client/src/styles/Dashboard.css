@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+.dashboard-page {
+    width: calc(100vw - 300px);
+    height: calc(100vh - 100px);
+    margin-left: calc(100vw - (100vw - 300px));
+    padding-top: calc(100vh - (100vh - 100px));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-page .dashboard-left {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    background-color: #314b4c;
+    color: #e7c2ba;
+}
+
+.dashboard-page .dashboard-left .order-table {
+    width: 100%;
+    height: auto;
+}
+
+.dashboard-page .dashboard-left .row {
+    width: 100%;
+    line-height: 3;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0ab4b;
+    font-size: 1.2em;
+}
+
+.dashboard-page .dashboard-left .row .item-amount,
+.dashboard-page .dashboard-left .row .item-date,
+.dashboard-page .dashboard-left .row .item-price {
+    width: 25%;
+    text-align: center;
+}
+
+.dashboard-page .dashboard-left .row .item-name {
+    width: 25%;
+    text-align: left;
+}
+
+.dashboard-page .dashboard-right {
+    width: 40%;
+    height: 100%;
+    background-color: #314b4c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-page .dashboard-right form.add-order {
+    width: 90%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-page .dashboard-right form.add-order h1 {
+    font-size: 1.7em;
+    text-align: left;
+    color: #e7c2ba;
+    border-bottom: 1px solid #e0ab4b;
+    width: 70%;
+}
+
+.dashboard-page .dashboard-right form.add-order div {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.dashboard-page .dashboard-right form.add-order div label {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.dashboard-page .dashboard-right form.add-order div input {
+    font-family: "Poppins", sans-serif;
+    line-height: 2;
+    width: 95%;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    font-size: 1.2em;
+    align-self: center;
+    box-shadow: 1px 2px 5px #7c7c7c;
+    background-color: #e7c2ba;
+    color: #655551;
+}
+
+.dashboard-page .dashboard-right form.add-order button {
+    font-family: "Poppins", sans-serif;
+    line-height: 3;
+    width: 40%;
+    border-style: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-color: #e7c2ba;
+    color: #655551;
+    font-size: 1.15em;
+    box-shadow: 1px 2px 5px #7c7c7c;
+}
+
+.dashboard-page .dashboard-right form.add-order button:hover {
+    transform: 0.3s;
+    transform: scale(1.05);
+}
