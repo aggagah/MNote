@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     background-color: #314b4c;
+    position: fixed;
 }
 
 .register-page .center {
