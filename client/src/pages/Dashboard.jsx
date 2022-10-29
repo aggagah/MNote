@@ -48,21 +48,21 @@ function Dashboard() {
         <div className="dashboard-page">
             <div className="dashboard-left">
                 <h1>Food Order</h1>
+                <div
+                    className="row"
+                    style={{
+                        fontSize: "1.25em",
+                        fontWeight: "600",
+                        borderBottom: "1px solid #e0ab4b",
+                        marginBottom: "5px",
+                    }}
+                >
+                    <div className="item-name">Item Name</div>
+                    <div className="item-amount">Amount</div>
+                    <div className="item-date">Date</div>
+                    <div className="item-price">Total Price</div>
+                </div>
                 <div className="order-table">
-                    <div
-                        className="row"
-                        style={{
-                            fontSize: "1.25em",
-                            fontWeight: "600",
-                            borderBottom: "1px solid #e0ab4b",
-                            marginBottom: "5px",
-                        }}
-                    >
-                        <div className="item-name">Item Name</div>
-                        <div className="item-amount">Amount</div>
-                        <div className="item-date">Date</div>
-                        <div className="item-price">Total Price</div>
-                    </div>
                     {Array.isArray(orderList)
                         ? orderList.map((order) => (
                               <div className="row" key={order._id}>

@@ -25,7 +25,8 @@
 
 .dashboard-page .dashboard-left .order-table {
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow: scroll;
 }
 
 .dashboard-page .dashboard-left .row {
