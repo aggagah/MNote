@@ -12,9 +12,9 @@ const getAllOrder = (req, res) => {
 };
 
 // get order data based on name
-const getOrder = async (req, res) => {
+const getOrderByName = async (req, res) => {
     const { name } = req.body;
-    const orderData = await order.findOne({
+    const orderData = await order.find({
         name: name,
     });
 
@@ -22,6 +22,19 @@ const getOrder = async (req, res) => {
         res.json({ message: "order data found", data: orderData });
     } else {
         res.json({ message: "order data not found" });
+    }
+};
+
+// get order data based on date
+const getOrderByDate = async (req, res) => {
+    const { date } = req.body;
+    const orderData = await order.find({ date: date });
+
+    if (orderData) {
+        res.json({ message: "data with specific date found", data: orderData });
+        return orderData;
+    } else {
+        res.json({ message: "data not found" });
     }
 };
 
@@ -44,4 +57,4 @@ const addOrder = async (req, res) => {
 
 // update order data
 
-module.exports = { getAllOrder, getOrder, addOrder };
+module.exports = { getAllOrder, getOrderByName, addOrder, getOrderByDate };
