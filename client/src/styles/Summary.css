@@ -6,7 +6,51 @@
 
 .summary-page {
     width: calc(100vw - 300px);
-    height: calc(100vh - (100vh - 100px));
+    height: calc(100vh - 100px);
     margin-left: calc(100vw - (100vw - 300px));
     padding-top: calc(100vh - (100vh - 100px));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #314b4c;
+}
+
+.summary-page .left {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    color: #e7c2ba;
+}
+
+.summary-page .left .summary-table {
+    width: 100%;
+    height: auto;
+}
+
+.summary-page .left .summary-table .row {
+    width: 100%;
+    line-height: 3;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0ab4b;
+    font-size: 1.2em;
+}
+
+.summary-page .left .summary-table .row .item-date {
+    width: 33%;
+    text-align: left;
+}
+.summary-page .left .summary-table .row .item-amount,
+.summary-page .left .summary-table .row .item-totalPrice {
+    width: 33%;
+    text-align: center;
+}
+
+.summary-page .right {
+    width: 40%;
+    height: 100%;
+    background-color: #314b4c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
