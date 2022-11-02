@@ -16,14 +16,56 @@
 }
 
 .summary-page .left {
-    width: 60%;
+    width: 100%;
     height: 100%;
     padding: 20px;
     color: #e7c2ba;
 }
 
+.summary-page .filter-date {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    padding: 5px 2px;
+}
+
+.summary-page .filter-date label {
+    font-size: 1.15em;
+    color: #e7c2ba;
+    font-family: "Poppins", sans-serif;
+}
+
+.summary-page .filter-date input {
+    width: 40%;
+    background-color: #e7c2ba;
+    color: #655551;
+    outline: none;
+    border-style: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.summary-page .filter-date button {
+    width: 40%;
+    font-family: "Poppins", sans-serif;
+    padding: 5px;
+    border-radius: 20px;
+    width: 40%;
+    width: 70px;
+    border-style: none;
+    transition: 0.3s;
+    background-color: #e7c2ba;
+    color: #655551;
+}
+
+.summary-page .filter-date button:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
 .summary-page .left .summary-table {
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 
@@ -44,13 +86,4 @@
 .summary-page .left .summary-table .row .item-totalPrice {
     width: 33%;
     text-align: center;
-}
-
-.summary-page .right {
-    width: 40%;
-    height: 100%;
-    background-color: #314b4c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

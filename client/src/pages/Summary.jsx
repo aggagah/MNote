@@ -10,15 +10,15 @@ function Summary() {
         date: "",
     });
 
-    const getDataByDate = () => {
+    const getDataByDate = (e) => {
+        e.preventDefault();
         api.post("getorderbydate", {
-            date: `${state.date.getDate()}-${
-                state.date.getMonth() + 1
-            }-${state.date.getFullYear()}`,
+            date: `${state.date[8] + state.date[9]}-${
+                state.date[5] + state.date[6]
+            }-${state.date[0] + state.date[1] + state.date[2] + state.date[3]}`,
         }).then((response) => {
             setOrderList(response.data.data.reverse());
         });
-        console.log(state.date);
     };
 
     const change = (e) => {
@@ -28,14 +28,29 @@ function Summary() {
 
     let totalPrice = 0;
     let totalAmount = 0;
+    let listDate = [];
     orderList.forEach((order) => {
         totalPrice = totalPrice + order.totalPrice;
         totalAmount = totalAmount + order.amount;
+        if (!listDate.includes(order.date)) {
+            let dateData = String(order.date);
+            listDate.push(dateData);
+        }
     });
     return (
         <div className="summary-page">
             <div className="left">
                 <h1>Summary</h1>
+                <form onSubmit={getDataByDate} className="filter-date">
+                    <label htmlFor="date">Select date</label>
+                    <input
+                        type="Date"
+                        name="date"
+                        value={state.date}
+                        onChange={change}
+                    />
+                    <button type="submit">Filter</button>
+                </form>
                 <div className="summary-table">
                     <div
                         className="row"
@@ -50,10 +65,10 @@ function Summary() {
                         <div className="item-amount">Amount</div>
                         <div className="item-totalPrice">Total Price</div>
                     </div>
-                    {Array.isArray(orderList)
-                        ? orderList.map((order) => (
-                              <div className="row" key={order._id}>
-                                  <div className="item-date">{state.date}</div>
+                    {Array.isArray(listDate)
+                        ? listDate.map((order) => (
+                              <div className="row" key="1">
+                                  <div className="item-date">{order}</div>
                                   <div className="item-amount">
                                       {totalAmount}
                                   </div>
@@ -64,22 +79,6 @@ function Summary() {
                           ))
                         : console.log("Data error")}
                 </div>
-            </div>
-            <div className="right">
-                <form onSubmit={getDataByDate} className="filter-date">
-                    <h1>Filter Order</h1>
-                    <div className="date-form">
-                        <label htmlFor="date">Select date</label>
-                        <input
-                            type="Date"
-                            name="date"
-                            value={state.date}
-                            onChange={change}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <button type="submit">Filter</button>
-                </form>
             </div>
         </div>
     );
