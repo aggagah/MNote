@@ -2,26 +2,28 @@ import React from "react";
 import "../styles/Summary.css";
 import api from "../api/order.api";
 import { useState } from "react";
-import { useEffect } from "react";
 
 function Summary() {
     const [orderList, setOrderList] = useState([]);
-    const [date, setDate] = useState(
-        `${new Date().getDate()}-${
-            new Date().getMonth() + 1
-        }-${new Date().getFullYear()}`
-    );
 
-    useEffect(() => {
-        getDataByDate();
+    const [state, setState] = useState({
+        date: "",
     });
 
     const getDataByDate = () => {
         api.post("getorderbydate", {
-            date: date,
+            date: `${state.date.getDate()}-${
+                state.date.getMonth() + 1
+            }-${state.date.getFullYear()}`,
         }).then((response) => {
             setOrderList(response.data.data.reverse());
         });
+        console.log(state.date);
+    };
+
+    const change = (e) => {
+        e.preventDefault();
+        setState({ ...state, [e.target.name]: e.target.value });
     };
 
     let totalPrice = 0;
@@ -51,7 +53,7 @@ function Summary() {
                     {Array.isArray(orderList)
                         ? orderList.map((order) => (
                               <div className="row" key={order._id}>
-                                  <div className="item-date">{order.date}</div>
+                                  <div className="item-date">{state.date}</div>
                                   <div className="item-amount">
                                       {totalAmount}
                                   </div>
@@ -63,7 +65,22 @@ function Summary() {
                         : console.log("Data error")}
                 </div>
             </div>
-            <div className="right">insert date here</div>
+            <div className="right">
+                <form onSubmit={getDataByDate} className="filter-date">
+                    <h1>Filter Order</h1>
+                    <div className="date-form">
+                        <label htmlFor="date">Select date</label>
+                        <input
+                            type="Date"
+                            name="date"
+                            value={state.date}
+                            onChange={change}
+                            autoComplete="off"
+                        />
+                    </div>
+                    <button type="submit">Filter</button>
+                </form>
+            </div>
         </div>
     );
 }
