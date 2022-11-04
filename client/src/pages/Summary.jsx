@@ -19,6 +19,10 @@ function Summary() {
         }).then((response) => {
             setOrderList(response.data.data.reverse());
         });
+
+        setState({
+            date: "",
+        });
     };
 
     const change = (e) => {

@@ -6,7 +6,86 @@
 
 .search-page {
     width: calc(100vw - 300px);
-    height: calc(100vh - (100vh - 100px));
+    height: calc(100vh - 100px);
     margin-left: calc(100vw - (100vw - 300px));
     padding-top: calc(100vh - (100vh - 100px));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #314b4c;
+}
+
+.search-page .search {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #e7c2ba;
+}
+
+.search-page .search .search-order {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    padding: 5px 2px;
+}
+
+.search-page .search .search-order label {
+    font-size: 1.15em;
+    color: #e7c2ba;
+    font-family: "Poppins", sans-serif;
+}
+
+.search-page .search .search-order input {
+    width: 40%;
+    background-color: #e7c2ba;
+    color: #655551;
+    outline: none;
+    border-style: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.search-page .search .search-order button {
+    width: 40%;
+    font-family: "Poppins", sans-serif;
+    padding: 5px;
+    border-radius: 20px;
+    width: 40%;
+    width: 70px;
+    border-style: none;
+    transition: 0.3s;
+    background-color: #e7c2ba;
+    color: #655551;
+}
+
+.search-page .search .search-order button:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.search-page .search .search-table {
+    width: 70%;
+    height: auto;
+}
+
+.search-page .search .search-table .row {
+    width: 100%;
+    line-height: 3;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0ab4b;
+    font-size: 1.2em;
+}
+
+.search-page .search .search-table .row .item-name {
+    width: 25%;
+    text-align: left;
+}
+
+.search-page .search .search-table .row .item-amount,
+.search-page .search .search-table .row .item-date,
+.search-page .search .search-table .row .item-totalPrice {
+    width: 25%;
+    text-align: center;
 }
