@@ -20,7 +20,7 @@ function Sidebar() {
             <div className="topnav">
                 <div className="text-wrapper">
                     <h1 className="logo-title">MNote</h1>
-                    <h1 className="user">User</h1>
+                    <h1 className="user">{localStorage.getItem("user")}</h1>
                 </div>
             </div>
             <div className="sidenav">

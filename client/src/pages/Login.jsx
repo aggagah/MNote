@@ -31,6 +31,8 @@ function Login() {
                 } else if (response.data.message === "User not found") {
                     setStatus("No user registered with this email");
                 } else {
+                    let user = response.data.data.fullname;
+                    localStorage.setItem("user", user);
                     navigate("/mnote");
                 }
             });
