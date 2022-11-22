@@ -4,6 +4,7 @@ const cors = require("cors");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 // * app configuration
@@ -11,8 +12,8 @@ const app = express();
 app.use(cors());
 app.options("*", cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(morgan("tiny"));
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(morgan("tiny"));
 
 // * session configuration
 const MAX_AGE = 1000 * 60 * 30; // 30 minutes

@@ -55,6 +55,24 @@ const addOrder = async (req, res) => {
     res.json({ message: "Success add order data", data: newOrder });
 };
 
-// update order data
+// delete order data
+const deleteOrder = async (req, res) => {
+    const { _id } = req.body;
+    console.log(_id);
+    await order
+        .findOneAndDelete({
+            _id: _id,
+        })
+        .then((result) => {
+            console.log(result);
+            res.json(result);
+        });
+};
 
-module.exports = { getAllOrder, getOrderByName, addOrder, getOrderByDate };
+module.exports = {
+    getAllOrder,
+    getOrderByName,
+    addOrder,
+    getOrderByDate,
+    deleteOrder,
+};

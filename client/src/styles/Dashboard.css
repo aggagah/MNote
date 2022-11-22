@@ -16,7 +16,7 @@
 }
 
 .dashboard-page .dashboard-left {
-    width: 60%;
+    width: 65%;
     height: 100%;
     padding: 20px;
     background-color: #314b4c;
@@ -40,18 +40,19 @@
 
 .dashboard-page .dashboard-left .row .item-amount,
 .dashboard-page .dashboard-left .row .item-date,
-.dashboard-page .dashboard-left .row .item-price {
-    width: 25%;
+.dashboard-page .dashboard-left .row .item-price,
+.dashboard-page .dashboard-left .row .item-action {
+    width: 20%;
     text-align: center;
 }
 
 .dashboard-page .dashboard-left .row .item-name {
-    width: 25%;
+    width: 20%;
     text-align: left;
 }
 
 .dashboard-page .dashboard-right {
-    width: 40%;
+    width: 35%;
     height: 100%;
     background-color: #314b4c;
     display: flex;
