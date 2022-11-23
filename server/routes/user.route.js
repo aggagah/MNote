@@ -1,7 +1,12 @@
-const { getUser,updateUser } = require("../controllers/user.controller");
+const {
+    getUser,
+    getUserByName,
+    updateUser,
+} = require("../controllers/user.controller");
 const router = require("express").Router();
 
 router.get("/getusers", getUser);
-router.put("/updateuser", updateUser)
+router.post("/getuserbyname", getUserByName);
+router.put("/updateuser", updateUser);
 
 module.exports = router;
