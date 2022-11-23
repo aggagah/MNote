@@ -2,11 +2,85 @@
 
 * {
     font-family: "Poppins", sans-serif;
+    overflow: hidden;
 }
 
 .settings-page {
     width: calc(100vw - 300px);
-    height: calc(100vh - (100vh - 100px));
+    height: calc(100vh - 100px);
     margin-left: calc(100vw - (100vw - 300px));
     padding-top: calc(100vh - (100vh - 100px));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    background-color: #314b4c;
+    padding-left: 20px;
+}
+
+.settings-page h1.title {
+    height: 10%;
+    color: #e7c2ba;
+}
+
+.settings-page .container-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 100%;
+}
+
+.settings-page .container-form .update-data {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.settings-page .container-form .update-data div {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.settings-page .container-form .update-data div label {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.settings-page .container-form .update-data div input {
+    font-family: "Poppins", sans-serif;
+    line-height: 2;
+    width: 95%;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    font-size: 1.2em;
+    align-self: center;
+    box-shadow: 1px 2px 5px #7c7c7c;
+    background-color: #e7c2ba;
+    color: #655551;
+}
+
+.settings-page .container-form .update-data button {
+    font-family: "Poppins", sans-serif;
+    line-height: 3;
+    width: 10%;
+    border-style: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-color: #e7c2ba;
+    color: #655551;
+    font-size: 1.15em;
+    box-shadow: 1px 2px 5px #7c7c7c;
+}
+
+.settings-page .container-form .update-data button:hover {
+    transform: 0.3s;
+    transform: scale(1.05);
 }
