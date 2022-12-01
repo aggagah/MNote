@@ -14,7 +14,9 @@ class HelpController {
             });
 
             newData.save();
-            res.json({ message: "new help data added to database" });
+            res.status(201).json({
+                message: "new help data added to database",
+            });
         } catch (error) {
             console.error(error.message);
         }
@@ -23,7 +25,7 @@ class HelpController {
     getHelp = async (req, res) => {
         const data = await help.find();
 
-        res.json(data);
+        res.status(200).json(data);
     };
 }
 

@@ -8,7 +8,7 @@ class OrderController {
             if (err) {
                 console.error(err);
             } else {
-                res.json({ data: result });
+                res.status(200).json({ data: result });
             }
         });
     };
@@ -16,12 +16,15 @@ class OrderController {
     // get order data based on name
     getOrderByName = async (req, res) => {
         const { name } = req.body;
-        const orderData = await order
+        await order
             .find({
                 name: name,
             })
             .then((result) => {
-                res.json({ message: "order data found", data: result });
+                res.status(200).json({
+                    message: "order data found",
+                    data: result,
+                });
             });
     };
 
@@ -31,13 +34,13 @@ class OrderController {
         const orderData = await order.find({ date: date });
 
         if (orderData) {
-            res.json({
+            res.status(200).json({
                 message: "data with specific date found",
                 data: orderData,
             });
             return orderData;
         } else {
-            res.json({ message: "data not found" });
+            res.status(404).json({ message: "data not found" });
         }
     };
 
@@ -57,7 +60,10 @@ class OrderController {
         });
 
         await newOrder.save();
-        res.json({ message: "Success add order data", data: newOrder });
+        res.status(201).json({
+            message: "Success add order data",
+            data: newOrder,
+        });
     };
 
     // delete order data
@@ -70,7 +76,7 @@ class OrderController {
             })
             .then((result) => {
                 console.log(result);
-                res.json(result);
+                res.status(200).json(result);
             });
     };
 }

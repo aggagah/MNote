@@ -11,7 +11,7 @@ class AuthController {
             if (password) {
                 encryptedPassword = await bcrypt.hash(password, 10);
             } else {
-                res.json({ message: "password can not be empty" });
+                res.status(400).json({ message: "password can not be empty" });
             }
 
             const newUser = await new user({
@@ -22,12 +22,12 @@ class AuthController {
             });
 
             await newUser.save();
-            res.json({
+            res.status(201).json({
                 message: "Success add user to database",
                 data: newUser,
             });
         } catch (error) {
-            res.json({
+            res.status(400).json({
                 message: error.message,
             });
         }
@@ -45,16 +45,19 @@ class AuthController {
                     const userSession = { email: userFound.email };
                     req.session.user = userSession;
                     req.session.isAuth = true;
-                    res.json({ message: "Login success", data: userFound });
+                    res.status(200).json({
+                        message: "Login success",
+                        data: userFound,
+                    });
                 } else {
-                    res.json({ message: "Wrong password" });
+                    res.status(400).json({ message: "Wrong password" });
                 }
             } else {
-                res.json({ message: "User not found" });
+                res.status(400).json({ message: "User not found" });
                 s;
             }
         } catch (error) {
-            res.json({ message: error.message });
+            res.status(500).json({ message: error.message });
         }
     };
 }
