@@ -13,7 +13,7 @@ app.use(cors());
 app.options("*", cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(morgan("tiny"));
+// app.use(morgan("dev"));
 
 // * session configuration
 const MAX_AGE = 1000 * 60 * 30; // 30 minutes

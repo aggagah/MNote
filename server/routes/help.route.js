@@ -1,7 +1,8 @@
-const { addHelp, getHelp } = require("../controllers/help.controller");
+const { HelpController } = require("../controllers/HelpController");
 const router = require("express").Router();
 
-router.post("/addhelp", addHelp);
-router.get("/gethelp", getHelp);
+let help = new HelpController();
+router.post("/addhelp", help.addHelp);
+router.get("/gethelp", help.getHelp);
 
 module.exports = router;
