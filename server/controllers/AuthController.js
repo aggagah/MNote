@@ -42,9 +42,6 @@ class AuthController {
 
             if (userFound) {
                 if (await bcrypt.compare(password, userFound.password)) {
-                    const userSession = { email: userFound.email };
-                    req.session.user = userSession;
-                    req.session.isAuth = true;
                     res.status(200).json({
                         message: "Login success",
                         data: userFound,
