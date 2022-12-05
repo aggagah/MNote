@@ -39,6 +39,7 @@ function Settings() {
             _id: state._id,
             fullname: state.fullname,
             email: state.email,
+            phone: state.phone,
             password: state.password,
         });
         localStorage.setItem("user", state.fullname.toUpperCase());
