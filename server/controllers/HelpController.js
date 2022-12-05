@@ -5,10 +5,9 @@ class HelpController {
 
     addHelp = async (req, res) => {
         try {
-            const { key, title, answer } = req.body;
+            const { title, answer } = req.body;
 
             const newData = await new help({
-                key: key,
                 title: title,
                 answer: answer,
             });

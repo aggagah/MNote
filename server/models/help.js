@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
 const Schema = new mongoose.Schema({
-    key: {
-        type: String,
-    },
     title: {
         type: String,
         required: true,
