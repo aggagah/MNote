@@ -11,7 +11,7 @@ app.use(cors());
 app.options("*", cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 // * default routes
 app.get("/", (req, res) => {

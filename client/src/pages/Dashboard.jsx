@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import api from "../api/order.api";
 import "../styles/Dashboard.css";
 import Button from "@mui/material/Button";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Dashboard() {
     const [orderList, setOrderList] = useState([]);
@@ -12,7 +14,6 @@ function Dashboard() {
         amount: undefined,
         totalPrice: undefined,
     });
-
     // get all order data
     useEffect(() => {
         getAllOrder();
@@ -45,13 +46,32 @@ function Dashboard() {
         });
     };
 
-    const deleteOrder = (e) => {
-        e.preventDefault();
-        const _id = e.target.id;
+    const deleteOrder = (_id) => {
+        // e.preventDefault();
+        // const _id = e.target.id;
         console.log(_id);
 
         api.delete("deleteorder", { data: { _id: _id } }).then((response) => {
             console.log(response);
+        });
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+        const _id = e.target.id;
+        confirmAlert({
+            title: "Confirm to submit",
+            message: "Are you sure to do this.",
+            buttons: [
+                {
+                    label: "Yes",
+                    onClick: () => deleteOrder(_id),
+                },
+                {
+                    label: "No",
+                    //onClick: () => alert('Click No')
+                },
+            ],
         });
     };
 
@@ -117,7 +137,7 @@ function Dashboard() {
                                           size="small"
                                           variant="contained"
                                           color="error"
-                                          onClick={deleteOrder}
+                                          onClick={submit}
                                       >
                                           Delete
                                       </Button>

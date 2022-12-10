@@ -51,7 +51,6 @@ class AuthController {
                 }
             } else {
                 res.status(400).json({ message: "User not found" });
-                s;
             }
         } catch (error) {
             res.status(500).json({ message: error.message });
