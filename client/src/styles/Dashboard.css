@@ -90,10 +90,10 @@
     font-family: "Poppins", sans-serif;
 }
 
-.dashboard-page .dashboard-right form.add-order div input {
+.dashboard-page .dashboard-right form.add-order div select {
     font-family: "Poppins", sans-serif;
     line-height: 2;
-    width: 95%;
+    width: 100%;
     border-style: none;
     border-radius: 10px;
     padding: 10px;
@@ -102,7 +102,6 @@
     align-self: center;
     box-shadow: 1px 2px 5px #7c7c7c;
     background-color: #e7c2ba;
-    color: #655551;
 }
 
 .dashboard-page .dashboard-right form.add-order button {

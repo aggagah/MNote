@@ -4,13 +4,22 @@ const order = require("../models/order");
 class OrderController {
     constructor() {}
     getAllOrder = (req, res) => {
-        order.find({}, (err, result) => {
-            if (err) {
-                console.error(err);
-            } else {
-                res.status(200).json({ data: result });
+        order.find(
+            {
+                date: `${
+                    new Date().getDate() < 10
+                        ? "0" + new Date().getDate()
+                        : new Date().getDate()
+                }-${new Date().getMonth() + 1}-${new Date().getFullYear()}`,
+            },
+            (err, result) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    res.status(200).json({ data: result });
+                }
             }
-        });
+        );
     };
 
     // get order data based on name
@@ -46,7 +55,21 @@ class OrderController {
 
     // add new order data
     addOrder = async (req, res) => {
-        const { name, amount, totalPrice } = req.body;
+        const { name, amount } = req.body;
+        let totalPrice;
+        switch (name) {
+            case "nasi goreng":
+                totalPrice = 13000;
+                break;
+            case "tahu campur":
+                totalPrice = 10000;
+                break;
+            case "pecel ayam":
+                totalPrice = 17000;
+                break;
+            default:
+                break;
+        }
 
         const newOrder = await new order({
             name: name,

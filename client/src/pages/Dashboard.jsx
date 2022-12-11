@@ -12,7 +12,6 @@ function Dashboard() {
     const [state, setState] = useState({
         name: "",
         amount: undefined,
-        totalPrice: undefined,
     });
     // get all order data
     useEffect(() => {
@@ -34,7 +33,6 @@ function Dashboard() {
         api.post("addorder", {
             name: state.name,
             amount: state.amount,
-            totalPrice: state.totalPrice,
         }).then((response) => {
             console.log(response.message);
         });
@@ -60,7 +58,7 @@ function Dashboard() {
         e.preventDefault();
         const _id = e.target.id;
         confirmAlert({
-            title: "Confirm to submit",
+            title: "Confirm to delete",
             message: "Are you sure to do this.",
             buttons: [
                 {
@@ -152,33 +150,40 @@ function Dashboard() {
                     <h1>Add New Order</h1>
                     <div className="item-name-form">
                         <label htmlFor="name">Item Name</label>
-                        <input
-                            type="text"
+                        <select
                             name="name"
-                            value={state.name}
+                            id="name"
                             onChange={change}
+                            value={state.name}
                             autoComplete="off"
-                        />
+                        >
+                            <option hidden>----select menu----</option>
+                            <option>nasi goreng</option>
+                            <option>tahu campur</option>
+                            <option>pecel ayam</option>
+                        </select>
                     </div>
                     <div className="item-amount-form">
                         <label htmlFor="amount">Amount</label>
-                        <input
-                            type="text"
+                        <select
                             name="amount"
+                            id="amount"
                             value={state.amount}
                             onChange={change}
                             autoComplete="off"
-                        />
-                    </div>
-                    <div className="item-price-form">
-                        <label htmlFor="totalPrice">Price</label>
-                        <input
-                            type="text"
-                            name="totalPrice"
-                            value={state.totalPrice}
-                            onChange={change}
-                            autoComplete="off"
-                        />
+                        >
+                            <option hidden>----select amount----</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
                     </div>
                     <button type="submit">Add</button>
                 </form>
