@@ -2,7 +2,7 @@ const { OrderController } = require("../controllers/OrderController");
 const router = require("express").Router();
 
 let order = new OrderController();
-router.get("/getorder", order.getAllOrder);
+router.post("/getorder", order.getAllOrder);
 router.post("/addorder", order.addOrder);
 router.post("/getorderbydate", order.getOrderByDate);
 router.post("/getorderbyname", order.getOrderByName);

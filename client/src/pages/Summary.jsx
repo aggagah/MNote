@@ -16,8 +16,9 @@ function Summary() {
             date: `${state.date[8] + state.date[9]}-${
                 state.date[5] + state.date[6]
             }-${state.date[0] + state.date[1] + state.date[2] + state.date[3]}`,
+            _id: localStorage.getItem("user"),
         }).then((response) => {
-            setOrderList(response.data.data.reverse());
+            setOrderList(response.data.orders.reverse());
         });
 
         setState({

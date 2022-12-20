@@ -18,6 +18,12 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "order",
+        },
+    ],
 });
 
 module.exports = mongoose.model("user", schema);

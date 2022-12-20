@@ -17,11 +17,10 @@ function Settings() {
         setState({ ...state, [e.target.name]: e.target.value });
     };
 
-    const getData = (e) => {
-        e.preventDefault();
+    useEffect(() => {
         userApi
-            .post("getuserbyname", {
-                fullname: localStorage.getItem("user"),
+            .post("getuserbyid", {
+                _id: localStorage.getItem("user"),
             })
             .then((response) => {
                 setState({
@@ -32,7 +31,7 @@ function Settings() {
                     password: response.data.password,
                 });
             });
-    };
+    }, []);
 
     const updateUser = () => {
         userApi.put("updateuser", {
@@ -42,7 +41,7 @@ function Settings() {
             phone: state.phone,
             password: state.password,
         });
-        localStorage.setItem("user", state.fullname.toUpperCase());
+        localStorage.setItem("user", state._id);
         setState({
             _id: "",
             fullname: "",
@@ -57,9 +56,6 @@ function Settings() {
             <h1 className="title">Account Settings</h1>
             <div className="container-form">
                 <form className="update-data" onSubmit={updateUser}>
-                    <button onClick={getData} type="submit">
-                        View Data
-                    </button>
                     <div className="fullname">
                         <label htmlFor="fullname">Fullname</label>
                         <input

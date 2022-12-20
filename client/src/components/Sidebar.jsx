@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
+import userApi from "../api/user.api";
 import Dashboard from "../pages/Dashboard";
 import Help from "../pages/Help";
 import Search from "../pages/Search";
@@ -10,17 +11,28 @@ import "../styles/Sidebar.css";
 
 function Sidebar() {
     const [path, setPath] = useState("");
+    const [state, setState] = useState("");
 
     const handlePath = () => {
         setPath(window.location.pathname);
     };
+
+    useEffect(() => {
+        userApi
+            .post("getuserbyid", {
+                _id: localStorage.getItem("user"),
+            })
+            .then((response) => {
+                setState(response.data.fullname);
+            });
+    }, [state]);
 
     return (
         <>
             <div className="topnav">
                 <div className="text-wrapper">
                     <h1 className="logo-title">MNote</h1>
-                    <h1 className="user">{localStorage.getItem("user")}</h1>
+                    <h1 className="user">{state}</h1>
                 </div>
             </div>
             <div className="sidenav">

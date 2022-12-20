@@ -12,8 +12,9 @@ function Search() {
         e.preventDefault();
         api.post("getorderbyname", {
             name: state.name,
+            _id: localStorage.getItem("user"),
         }).then((response) => {
-            setOrderData(response.data.data.reverse());
+            setOrderData(response.data.data.orders.reverse());
         });
 
         setState({

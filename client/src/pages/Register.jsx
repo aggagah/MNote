@@ -29,7 +29,6 @@ function Register() {
                 password: state.password,
             })
             .then((response) => {
-                console.log(response.data.message);
                 if (response.data.message.includes("email:")) {
                     // check for duplicate email
                     setStatus("Email already used");
