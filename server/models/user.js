@@ -9,6 +9,7 @@ const schema = new mongoose.Schema({
     phone: {
         type: String,
         required: true,
+        unique: true,
     },
     fullname: {
         type: String,
