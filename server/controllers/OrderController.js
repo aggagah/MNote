@@ -16,7 +16,11 @@ class OrderController {
                         new Date().getDate() < 10
                             ? "0" + new Date().getDate()
                             : new Date().getDate()
-                    }-${new Date().getMonth() + 1}-${new Date().getFullYear()}`,
+                    }-${
+                        new Date().getMonth() < 10
+                            ? "0" + (new Date().getMonth() + 1)
+                            : new Date().getMonth() + 1
+                    }-${new Date().getFullYear()}`,
                 },
             });
             // check if data found
@@ -149,7 +153,7 @@ class OrderController {
     };
 
     // add new order data
-    addOrder = async (req, res) => {
+    _addOrder = async (req, res) => {
         try {
             // get name, _id, and amount value from client
             const { name, amount, _id } = req.body;
@@ -192,14 +196,15 @@ class OrderController {
                                         ? "0" + new Date().getDate()
                                         : new Date().getDate()
                                 }-${
-                                    new Date().getMonth() + 1
+                                    new Date().getMonth() < 10
+                                        ? "0" + (new Date().getMonth() + 1)
+                                        : new Date().getMonth() + 1
                                 }-${new Date().getFullYear()}`,
                                 totalPrice: totalPrice * amount,
                                 user: userData._id,
                             });
                             // save new order data to mongodb
                             await newOrder.save();
-
                             // update or add the data to user's order data
                             const updatedUserData =
                                 await user.findByIdAndUpdate(userData._id, {
@@ -237,6 +242,12 @@ class OrderController {
             res.status(500).json({ message: error });
         }
     };
+    get addOrder() {
+        return this._addOrder;
+    }
+    set addOrder(value) {
+        this._addOrder = value;
+    }
 
     // delete order data
     deleteOrder = async (req, res) => {
