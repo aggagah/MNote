@@ -13,9 +13,17 @@ function Search() {
         api.post("getorderbyname", {
             name: state.name,
             _id: localStorage.getItem("user"),
-        }).then((response) => {
-            setOrderData(response.data.data.orders.reverse());
-        });
+        })
+            .then((response) => {
+                setOrderData(response.data.data.orders.reverse());
+            })
+            .catch((err) => {
+                if (err.response.data.message === "order data not found") {
+                    alert("data not found!");
+                }
+                console.error(err);
+                console.clear();
+            });
 
         setState({
             name: "",

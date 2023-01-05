@@ -30,6 +30,10 @@ function Settings() {
                     phone: response.data.phone,
                     password: response.data.password,
                 });
+            })
+            .catch((err) => {
+                console.error(err);
+                console.clear();
             });
     }, []);
 

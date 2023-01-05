@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import userApi from "../api/user.api";
 import Dashboard from "../pages/Dashboard";
 import Help from "../pages/Help";
@@ -15,6 +16,16 @@ function Sidebar() {
 
     const handlePath = () => {
         setPath(window.location.pathname);
+    };
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        setTimeout(() => {
+            navigate("/");
+        }, 1500);
+        alert("Logout succeed! You will be redirected to main page");
     };
 
     useEffect(() => {
@@ -37,86 +48,99 @@ function Sidebar() {
             </div>
             <div className="sidenav">
                 <ul className="sidenav-ul">
-                    <Link
-                        to="/mnote"
-                        onClick={handlePath}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <li
-                            className="sidenav-li"
-                            id={
-                                window.location.pathname === "/mnote"
-                                    ? "active"
-                                    : ""
-                            }
+                    <div className="top">
+                        <Link
+                            to="/mnote"
+                            onClick={handlePath}
+                            style={{ textDecoration: "none" }}
                         >
-                            Dashboard
-                        </li>
-                    </Link>
-                    <Link
-                        to="/mnote/summary"
-                        onClick={handlePath}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <li
-                            className="sidenav-li"
-                            id={
-                                window.location.pathname === "/mnote/summary"
-                                    ? "active"
-                                    : ""
-                            }
+                            <li
+                                className="sidenav-li"
+                                id={
+                                    window.location.pathname === "/mnote"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Dashboard
+                            </li>
+                        </Link>
+                        <Link
+                            to="/mnote/summary"
+                            onClick={handlePath}
+                            style={{ textDecoration: "none" }}
                         >
-                            Summary
-                        </li>
-                    </Link>
-                    <Link
-                        to="/mnote/search"
-                        onClick={handlePath}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <li
-                            className="sidenav-li"
-                            id={
-                                window.location.pathname === "/mnote/search"
-                                    ? "active"
-                                    : ""
-                            }
+                            <li
+                                className="sidenav-li"
+                                id={
+                                    window.location.pathname ===
+                                    "/mnote/summary"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Summary
+                            </li>
+                        </Link>
+                        <Link
+                            to="/mnote/search"
+                            onClick={handlePath}
+                            style={{ textDecoration: "none" }}
                         >
-                            Search
-                        </li>
-                    </Link>
-                    <Link
-                        to="/mnote/settings"
-                        onClick={handlePath}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <li
-                            className="sidenav-li"
-                            id={
-                                window.location.pathname === "/mnote/settings"
-                                    ? "active"
-                                    : ""
-                            }
+                            <li
+                                className="sidenav-li"
+                                id={
+                                    window.location.pathname === "/mnote/search"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Search
+                            </li>
+                        </Link>
+                        <Link
+                            to="/mnote/settings"
+                            onClick={handlePath}
+                            style={{ textDecoration: "none" }}
                         >
-                            Settings
-                        </li>
-                    </Link>
-                    <Link
-                        to="/mnote/help"
-                        onClick={handlePath}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <li
-                            className="sidenav-li"
-                            id={
-                                window.location.pathname === "/mnote/help"
-                                    ? "active"
-                                    : ""
-                            }
+                            <li
+                                className="sidenav-li"
+                                id={
+                                    window.location.pathname ===
+                                    "/mnote/settings"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Settings
+                            </li>
+                        </Link>
+                        <Link
+                            to="/mnote/help"
+                            onClick={handlePath}
+                            style={{ textDecoration: "none" }}
                         >
-                            Help
-                        </li>
-                    </Link>
+                            <li
+                                className="sidenav-li"
+                                id={
+                                    window.location.pathname === "/mnote/help"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Help
+                            </li>
+                        </Link>
+                    </div>
+                    <div className="bottom">
+                        <button
+                            type="submit"
+                            onClick={handleLogout}
+                            id="btn-logout"
+                        >
+                            Logout
+                        </button>
+                    </div>
                 </ul>
             </div>
             <Routes>

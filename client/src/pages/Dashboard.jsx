@@ -21,9 +21,14 @@ function Dashboard() {
     const getAllOrder = () => {
         api.post("getorder", {
             _id: localStorage.getItem("user"),
-        }).then((response) => {
-            setOrderList(response.data.data.orders.reverse());
-        });
+        })
+            .then((response) => {
+                setOrderList(response.data.data.orders.reverse());
+            })
+            .catch((err) => {
+                console.error(err);
+                console.clear();
+            });
     };
 
     const change = (e) => {

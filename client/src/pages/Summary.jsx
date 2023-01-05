@@ -17,9 +17,17 @@ function Summary() {
                 state.date[5] + state.date[6]
             }-${state.date[0] + state.date[1] + state.date[2] + state.date[3]}`,
             _id: localStorage.getItem("user"),
-        }).then((response) => {
-            setOrderList(response.data.orders.reverse());
-        });
+        })
+            .then((response) => {
+                setOrderList(response.data.data.orders.reverse());
+            })
+            .catch((err) => {
+                if (err.response.data.message === "data not found") {
+                    alert("data not found!");
+                }
+                console.error(err);
+                console.clear();
+            });
 
         setState({
             date: "",

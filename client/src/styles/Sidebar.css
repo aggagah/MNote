@@ -53,6 +53,9 @@
     width: 90%;
     margin-top: 30px;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidenav .sidenav-ul .sidenav-li {
@@ -64,6 +67,31 @@
     padding-left: 10px;
     font-weight: 600;
     letter-spacing: 1px;
+}
+
+.sidenav .sidenav-ul .bottom {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidenav .sidenav-ul .bottom #btn-logout {
+    font-family: "Poppins", sans-serif;
+    line-height: 2;
+    width: 80%;
+    border-style: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-color: #e7c2ba;
+    color: #655551;
+    font-size: 1.15em;
+    box-shadow: 1px 2px 5px #7c7c7c;
+}
+
+.sidenav .sidenav-ul #btn-logout:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
 }
 
 #active {

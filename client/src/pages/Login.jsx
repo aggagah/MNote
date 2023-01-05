@@ -35,6 +35,10 @@ function Login() {
                     localStorage.setItem("user", user);
                     navigate("/mnote");
                 }
+            })
+            .catch((err) => {
+                console.error(err);
+                console.clear();
             });
         setState({
             email: "",

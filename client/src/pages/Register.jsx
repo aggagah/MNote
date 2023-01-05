@@ -44,6 +44,10 @@ function Register() {
                 ) {
                     navigate("/");
                 }
+            })
+            .catch((err) => {
+                console.error(err);
+                console.clear();
             });
 
         setState({

@@ -14,7 +14,7 @@ function Help() {
 
     const handleHelp = () => {
         helpApi.get("gethelp").then((response) => {
-            setListHelp(response.data);
+            setListHelp(response.data.data);
         });
     };
 
