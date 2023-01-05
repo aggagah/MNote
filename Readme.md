@@ -18,16 +18,6 @@ MNote is a web-based application created to help record food orders at a restaur
 
 ## USER MANUAL
 
-**Environment Variables**
-
-To run this project, you will need to add the following environment variables to your `.env` file inside the `server` folder after cloning the project
-
-`PORT`
-
-`MONGO_URI`
-
-`SECRET`
-
 **Pre-Requisites**
 
 Make sure your computer already install all of this
@@ -51,6 +41,12 @@ Go to the project directory
 ```bash
   cd MNote
 ```
+
+Copy the `api` folder to `client\src`
+
+**Environment Variables**
+
+Create file called `.env` inside `server` folder and copy all content of `envExample.txt` into `.env`
 
 Install client dependencies
 
