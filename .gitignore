@@ -12,8 +12,8 @@
 /server/.yarn
 
 # testing
-/coverage
-/__tests__
+/server/coverage
+/server/__tests__
 
 # production
 /build
