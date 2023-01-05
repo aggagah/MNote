@@ -1,0 +1,3 @@
+PORT=5000
+MONGO_URI='mongodb+srv://aggagah:13568@mnote.vl5azy5.mongodb.net/MNote?retryWrites=true&w=majority'
+SECRET='abcdefghijk'
