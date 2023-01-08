@@ -29,16 +29,18 @@ function Register() {
                 password: state.password,
             })
             .then((response) => {
-                if (response.data.message.includes("email:")) {
+                if (response.data.message.includes("email")) {
                     // check for duplicate email
-                    setStatus("Email already used");
-                } else if (response.data.message.includes("phone:")) {
+                    setStatus("Email already used / empty");
+                } else if (response.data.message.includes("phone")) {
                     // check for duplicate phone number
-                    setStatus("Phone number already used");
+                    setStatus("Phone number already used / empty");
                 } else if (
                     response.data.message === "password can not be empty"
                 ) {
                     setStatus("Password field must not empty");
+                } else if (response.data.message.includes("fullname")) {
+                    setStatus("Fullname can not be empty");
                 } else if (
                     response.data.message === "Success add user to database"
                 ) {
