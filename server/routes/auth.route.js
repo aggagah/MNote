@@ -1,8 +1,15 @@
 const { AuthController } = require("../controllers/AuthController");
-const router = require("express").Router();
+class AuthRoutes {
+    constructor() {
+        this.authController = new AuthController();
+        this.router = require("express").Router();
+        this.initRoutes();
+    }
 
-let auth = new AuthController();
-router.post("/signup", auth.signUp);
-router.post("/signin", auth.signIn);
+    initRoutes() {
+        this.router.post("/signup", this.authController.signUp);
+        this.router.post("/signin", this.authController.signIn);
+    }
+}
 
-module.exports = router;
+module.exports = new AuthRoutes().router;

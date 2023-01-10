@@ -1,11 +1,25 @@
 const { OrderController } = require("../controllers/OrderController");
-const router = require("express").Router();
 
-let order = new OrderController();
-router.post("/getorder", order.getAllOrder);
-router.post("/addorder", order.addOrder);
-router.post("/getorderbydate", order.getOrderByDate);
-router.post("/getorderbyname", order.getOrderByName);
-router.delete("/deleteorder", order.deleteOrder);
+class OrderRoutes {
+    constructor() {
+        this.orderController = new OrderController();
+        this.router = require("express").Router();
+        this.initRoutes();
+    }
 
-module.exports = router;
+    initRoutes() {
+        this.router.post("/getorder", this.orderController.getAllOrder);
+        this.router.post("/addorder", this.orderController.addOrder);
+        this.router.post(
+            "/getorderbydate",
+            this.orderController.getOrderByDate
+        );
+        this.router.post(
+            "/getorderbyname",
+            this.orderController.getOrderByName
+        );
+        this.router.delete("/deleteorder", this.orderController.deleteOrder);
+    }
+}
+
+module.exports = new OrderRoutes().router;
