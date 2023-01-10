@@ -29,7 +29,7 @@ class AuthController {
                             // encrypt password with hash from bcrypjt
                             encryptedPassword = await bcrypt.hash(password, 10);
                             // create new user data with given values
-                            const newUser = await new user({
+                            const newUser = await new user.model({
                                 email: email,
                                 phone: phone,
                                 fullname: fullname.toUpperCase(),
@@ -97,7 +97,7 @@ class AuthController {
                 });
             } else {
                 // find user in mongodb with given email
-                const userFound = await user.findOne({
+                const userFound = await user.model.findOne({
                     email: email,
                 });
                 // if user exist in database
