@@ -1,8 +1,16 @@
 const { HelpController } = require("../controllers/HelpController");
-const router = require("express").Router();
 
-let help = new HelpController();
-router.post("/addhelp", help.addHelp);
-router.get("/gethelp", help.getHelp);
+class HelpRoutes {
+    constructor() {
+        this.helpController = new HelpController();
+        this.router = require("express").Router();
+        this.initRoutes();
+    }
 
-module.exports = router;
+    initRoutes() {
+        this.router.post("/addhelp", this.helpController.addHelp);
+        this.router.get("/gethelp", this.helpController.getHelp);
+    }
+}
+
+module.exports = new HelpRoutes().router;

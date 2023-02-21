@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
+class Help {
+    constructor() {
+        this.schema = new mongoose.Schema({
+            title: {
+                type: String,
+                required: true,
+            },
+            answer: {
+                type: String,
+                required: true,
+            },
+        });
+        this.model = mongoose.model("help", this.schema);
+    }
+}
 
-const Schema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-    },
-    answer: {
-        type: String,
-        required: true,
-    },
-});
-
-module.exports = mongoose.model("help", Schema);
+module.exports = new Help();

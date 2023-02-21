@@ -6,7 +6,7 @@ class UserController {
 
     getUser = async (req, res) => {
         // find all user data in mongodb
-        const userData = await user.find();
+        const userData = await user.model.find();
 
         // if data exists
         if (userData.length > 0) {
@@ -24,7 +24,7 @@ class UserController {
             const { _id } = req.body;
             if (_id !== "" && _id !== null && _id !== undefined) {
                 // find a user data from mongodb with given id
-                const userData = await user.findOne({
+                const userData = await user.model.findOne({
                     _id: _id,
                 });
                 if (userData) {
@@ -72,7 +72,7 @@ class UserController {
                             ) {
                                 // check password length (to check if user input new password)
                                 if (password.length < 30) {
-                                    await user
+                                    await user.model
                                         .findOneAndUpdate(
                                             { _id: _id },
                                             {
@@ -94,7 +94,7 @@ class UserController {
                                         });
                                 } else {
                                     // user use old password (no new password)
-                                    await user
+                                    await user.model
                                         .findOneAndUpdate(
                                             { _id: _id },
                                             {

@@ -9,7 +9,7 @@ class OrderController {
             // get _id value from the client (user id)
             const { _id } = req.body;
             // find the data with current date
-            const orderData = await user.findOne({ _id: _id }).populate({
+            const orderData = await user.model.findOne({ _id: _id }).populate({
                 path: "orders",
                 match: {
                     date: `${
@@ -51,7 +51,7 @@ class OrderController {
             // find orders data with specific name
             if (_id !== "" && _id !== null && _id !== undefined) {
                 if (name !== "" && name !== null && name !== undefined) {
-                    const userData = await user.findOne({ _id: _id });
+                    const userData = await user.model.findOne({ _id: _id });
                     // check if user data exists
                     if (userData) {
                         // if user exists, populate the orders list with given name
@@ -106,7 +106,7 @@ class OrderController {
             if (_id !== "" && _id !== null && _id !== undefined) {
                 if (date !== "" && date !== null && date !== undefined) {
                     // find the user
-                    const userData = await user.findOne({ _id: _id });
+                    const userData = await user.model.findOne({ _id: _id });
 
                     // check if user data exists
                     if (userData) {
@@ -164,7 +164,7 @@ class OrderController {
                     // check _id empty
                     if (_id !== "" && _id !== null && _id != undefined) {
                         // find the user
-                        const userData = await user.findOne({
+                        const userData = await user.model.findOne({
                             _id: _id,
                         });
 
@@ -188,7 +188,7 @@ class OrderController {
                                     break;
                             }
                             // create new order data with given name, amount, and totalPrice value
-                            const newOrder = await new order({
+                            const newOrder = await new order.model({
                                 name: name,
                                 amount: amount,
                                 date: `${
@@ -207,9 +207,12 @@ class OrderController {
                             await newOrder.save();
                             // update or add the data to user's order data
                             const updatedUserData =
-                                await user.findByIdAndUpdate(userData._id, {
-                                    $push: { orders: newOrder._id },
-                                });
+                                await user.model.findByIdAndUpdate(
+                                    userData._id,
+                                    {
+                                        $push: { orders: newOrder._id },
+                                    }
+                                );
                             // send new order data to client
                             res.status(201).json({
                                 message: "Success add order data",
@@ -257,12 +260,12 @@ class OrderController {
             // check invalid id
             if (_id !== "" && _id !== null && _id !== undefined) {
                 // find order data with given id
-                const orderData = await order.findOneAndDelete({
+                const orderData = await order.model.findOneAndDelete({
                     _id: _id,
                 });
                 if (orderData) {
                     // if succes, update the user data and send message data deleted
-                    await user
+                    await user.model
                         .updateOne({ $pull: { orders: _id } })
                         .then(() => {
                             res.status(200).json({ message: "data deleted" });

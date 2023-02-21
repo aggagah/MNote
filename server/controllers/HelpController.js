@@ -10,7 +10,7 @@ class HelpController {
             if (title !== "" && title !== null && title !== undefined) {
                 if (answer !== "" && answer !== null && answer !== undefined) {
                     // create new help data
-                    const newData = await new help({
+                    const newData = await new help.model({
                         title: title,
                         answer: answer,
                     });
@@ -40,7 +40,7 @@ class HelpController {
     getHelp = async (req, res) => {
         try {
             // find all help data from mongodb
-            const data = await help.find();
+            const data = await help.model.find();
             if (data.length > 0) {
                 // send all found data to client
                 res.status(200).json({ data: data, message: "data found" });
